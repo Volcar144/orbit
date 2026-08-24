@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import {imageRouter} from "@/app/api/uploadthing/core";
+
 
 const figtreeHeading = Figtree({subsets:['latin'],variable:'--font-heading'});
 
@@ -28,6 +32,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", dmSans.variable, figtreeHeading.variable)}
     >
+    <NextSSRPlugin
+        /**
+         * The `extractRouterConfig` will extract **only** the route configs
+         * from the router to prevent additional information from being
+         * leaked to the client. The data passed to the client is the same
+         * as if you were to fetch `/api/uploadthing` directly.
+         */
+        routerConfig={extractRouterConfig(imageRouter)}
+    />
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
