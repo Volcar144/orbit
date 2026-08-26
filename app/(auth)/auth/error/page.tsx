@@ -2,11 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { useEffect, useState } from "react";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {Gavel, HammerIcon} from "lucide-react";
+import { Suspense, useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Gavel } from "lucide-react";
 
-export default function AuthErrorPage() {
+function AuthErrorContent() {
     const [banReason, setBanReason] = useState<string | null | undefined>("Not Given");
     const [expires, setExpires] = useState<Date | null | undefined>(undefined);
     const [loaded, setLoaded] = useState(false);
@@ -60,7 +60,7 @@ export default function AuthErrorPage() {
                     </CardHeader>
                     <CardContent>
                         <p>Reason: {banReason}</p>
-                        {expires === null? <div></div> : <p>Expires on {expires.toDateString()}</p>}
+                        {expires === null ? <div></div> : <p>Expires on {expires.toDateString()}</p>}
                     </CardContent>
                 </Card>
             </div>
@@ -89,5 +89,13 @@ export default function AuthErrorPage() {
                 </CardContent>
             </Card>
         </div>
+    );
+}
+
+export default function AuthErrorPage() {
+    return (
+        <Suspense fallback={<div><p>Loading...</p></div>}>
+            <AuthErrorContent />
+        </Suspense>
     );
 }
