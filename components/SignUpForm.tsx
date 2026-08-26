@@ -60,9 +60,6 @@ export function SignUpForm(){
                     type: "value",
                     message: ctx.error.message
                 })
-            },
-            onSuccess(ctx){
-                router.push("/setup");
             }
         })
         router.push("/setup");
