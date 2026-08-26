@@ -43,7 +43,8 @@ export function SignUpForm(){
     async function googleLogin(){
         setIsLoading(true)
         const {data, error} = await authClient.signIn.social({
-            provider: "google"
+            provider: "google",
+            requestSignUp: true
         }, {
             onError(ctx){
                 setIsLoading(false)
