@@ -6,3 +6,8 @@ allowBuilds:
   sharp: false
   unrs-resolver: false
   workerd: set this to true or false
+# pnpm-workspace.yaml
+onlyBuiltDependencies:
+  - esbuild
+  - msgpackr-extract
+  - workerd
