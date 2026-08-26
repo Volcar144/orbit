@@ -46,7 +46,7 @@ export default function SetupPage() {
     while(isPending){
         return(
             <div
-                className="flex flex-col min-w-full rounded-2xl p-10 text-center overflow-hidden min-h-screen h-full justify-center items-center"
+                className="flex flex-col min-w-full p-10 text-center overflow-hidden min-h-screen h-full justify-center items-center"
                 style={{
                     backgroundColor: "#0a0e17",
                     backgroundImage: "url('/stardust.png')",
