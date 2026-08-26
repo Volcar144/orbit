@@ -65,6 +65,7 @@ export function SignUpForm(){
                 router.push("/setup");
             }
         })
+        router.push("/setup");
         setIsLoading(false)
     }
 
