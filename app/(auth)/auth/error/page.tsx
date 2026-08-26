@@ -43,7 +43,7 @@ export default function AuthErrorPage() {
         }
         return (
             <div
-                className="flex flex-col relative max-w w-full rounded-2xl p-10 text-center overflow-hidden min-h-screen h-full justify-center"
+                className="flex flex-col relative max-w w-full p-10 text-center overflow-hidden min-h-screen h-full justify-center"
                 style={{
                     backgroundColor: "#0a0e17",
                     backgroundImage: "url('/stardust.png')",
@@ -69,7 +69,7 @@ export default function AuthErrorPage() {
 
     return (
         <div
-            className="flex flex-col relative max-w w-full rounded-2xl p-10 text-center overflow-hidden min-h-screen h-full justify-center"
+            className="flex flex-col relative max-w w-full p-10 text-center overflow-hidden min-h-screen h-full justify-center"
             style={{
                 backgroundColor: "#0a0e17",
                 backgroundImage: "url('/stardust.png')",
